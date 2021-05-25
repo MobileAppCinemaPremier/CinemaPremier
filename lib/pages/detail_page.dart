@@ -6,6 +6,7 @@ import 'package:cinema_premier/data/detail/cast.data.dart';
 import 'package:cinema_premier/data/detail/detail_data.dart';
 import 'package:cinema_premier/data/movie/movie_data.dart';
 import 'package:cinema_premier/data/upcoming/upcoming_data.dart';
+import 'package:cinema_premier/pages/book_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -300,21 +301,32 @@ class DetailPage extends StatelessWidget {
                               },
                             ),
                           ),
-                          Center(
-                              child: Container(
-                                  width: 180,
-                                  height: 55,
-                                  color: Colors.yellow[800],
-                                  child: Center(
-                                    child: Text(
-                                      'BOOK TICKET',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15,
-                                        color: Colors.white,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      BookTicketPage(movie: movie),
+                                ),
+                              );
+                            },
+                            child: Center(
+                                child: Container(
+                                    width: 180,
+                                    height: 55,
+                                    color: Colors.yellow[800],
+                                    child: Center(
+                                      child: Text(
+                                        'BOOK TICKET',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                        ),
                                       ),
-                                    ),
-                                  )))
+                                    ))),
+                          )
                         ],
                       ),
                     ),

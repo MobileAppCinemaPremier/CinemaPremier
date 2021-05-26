@@ -87,11 +87,11 @@ class Payment extends StatelessWidget {
                 width: size.width * 0.45,
                 child: Center(
                   child: Text(
-                    '\$20.00',
+                    'Rp. 50.000,00',
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      fontSize: 24,
+                      fontSize: 20,
                     ),
                   ),
                 ),
@@ -99,9 +99,6 @@ class Payment extends StatelessWidget {
               FlatButton(
                 color: Color(0xffF9B015),
                 onPressed: () {},
-                shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.only(topLeft: Radius.circular(30.0))),
                 child: Container(
                   width: size.width * 0.45,
                   height: size.width * 0.08,
@@ -109,9 +106,9 @@ class Payment extends StatelessWidget {
                     child: Text(
                       'Pay',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontWeight: FontWeight.bold,
-                        fontSize: 24,
+                        fontSize: 20,
                       ),
                     ),
                   ),

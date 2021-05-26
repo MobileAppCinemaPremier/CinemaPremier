@@ -12,71 +12,58 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
   final GlobalKey<FormState> _formKey = GlobalKey();
 
-  Map<String, String> _authData = {
-    'email' : '',
-    'password': ''
-  };
+  Map<String, String> _authData = {'email': '', 'password': ''};
 
-  void _showErrorDialog(String msg)
-  {
+  void _showErrorDialog(String msg) {
     showDialog(
         context: context,
-      builder: (ctx) => AlertDialog(
-        title: Text('An Error Occured'),
-        content: Text(msg),
-        actions: <Widget>[
-          FlatButton(
-            child: Text('Okay'),
-            onPressed: (){
-              Navigator.of(ctx).pop();
-            },
-          )
-        ],
-      )
-    );
+        builder: (ctx) => AlertDialog(
+              title: Text('An Error Occured'),
+              content: Text(msg),
+              actions: <Widget>[
+                FlatButton(
+                  child: Text('Okay'),
+                  onPressed: () {
+                    Navigator.of(ctx).pop();
+                  },
+                )
+              ],
+            ));
   }
 
-  Future<void> _submit() async
-  {
-    if(!_formKey.currentState.validate())
-      {
-        return;
-      }
+  Future<void> _submit() async {
+    if (!_formKey.currentState.validate()) {
+      return;
+    }
     _formKey.currentState.save();
 
-    try{
-      await Provider.of<Authentication>(context, listen: false).logIn(
-          _authData['email'],
-          _authData['password']
-      );
+    try {
+      await Provider.of<Authentication>(context, listen: false)
+          .logIn(_authData['email'], _authData['password']);
       Navigator.of(context).pushReplacementNamed(HomePage.routeName);
-
-    } catch (error)
-    {
+    } catch (error) {
       var errorMessage = 'Authentication Failed. Please try again later.';
       _showErrorDialog(errorMessage);
     }
-
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: Text('Login'),
         actions: <Widget>[
           FlatButton(
             child: Row(
-              children: <Widget>[
-                Text('Signup'),
-                Icon(Icons.person_add)
-              ],
+              children: <Widget>[Text('Signup'), Icon(Icons.person_add)],
             ),
             textColor: Colors.white,
-            onPressed: (){
-              Navigator.of(context).pushReplacementNamed(SignupScreen.routeName);
+            onPressed: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(SignupScreen.routeName);
             },
           )
         ],
@@ -85,13 +72,10 @@ class _LoginScreenState extends State<LoginScreen> {
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Colors.lightGreenAccent,
-                  Colors.blue,
-                ]
-              )
-            ),
+                gradient: LinearGradient(colors: [
+              Colors.yellow[800],
+              Colors.black,
+            ])),
           ),
           Center(
             child: Card(
@@ -111,16 +95,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         TextFormField(
                           decoration: InputDecoration(labelText: 'Email'),
                           keyboardType: TextInputType.emailAddress,
-                          validator: (value)
-                          {
-                            if(value.isEmpty || !value.contains('@'))
-                              {
-                                return 'invalid email';
-                              }
+                          validator: (value) {
+                            if (value.isEmpty || !value.contains('@')) {
+                              return 'invalid email';
+                            }
                             return null;
                           },
-                          onSaved: (value)
-                          {
+                          onSaved: (value) {
                             _authData['email'] = value;
                           },
                         ),
@@ -129,16 +110,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         TextFormField(
                           decoration: InputDecoration(labelText: 'Password'),
                           obscureText: true,
-                          validator: (value)
-                          {
-                            if(value.isEmpty || value.length<=5)
-                              {
-                                return 'invalid password';
-                              }
+                          validator: (value) {
+                            if (value.isEmpty || value.length <= 5) {
+                              return 'invalid password';
+                            }
                             return null;
                           },
-                          onSaved: (value)
-                          {
+                          onSaved: (value) {
                             _authData['password'] = value;
                           },
                         ),
@@ -146,17 +124,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 30,
                         ),
                         RaisedButton(
-                          child: Text(
-                            'Submit'
-                          ),
-                          onPressed: ()
-                          {
+                          child: Text('Submit'),
+                          onPressed: () {
                             _submit();
                           },
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          color: Colors.blue,
+                          color: Colors.black,
                           textColor: Colors.white,
                         )
                       ],

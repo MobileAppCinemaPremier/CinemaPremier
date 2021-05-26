@@ -20,7 +20,7 @@ class Theater extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Carnival Cinemas',
+                'Cinema XXI',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16.0,
@@ -28,7 +28,7 @@ class Theater extends StatelessWidget {
                 ),
               ),
               Text(
-                'Kodungallur, Kerala, India',
+                'Jakarta Barat, Indonesia',
                 style: TextStyle(
                   color: Colors.white.withOpacity(0.5),
                   fontSize: 16.0,

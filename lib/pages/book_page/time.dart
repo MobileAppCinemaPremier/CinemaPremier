@@ -46,14 +46,6 @@ class TimeSelectState extends State<TimeSelect> {
                       color: active ? Color(0xffF9B015) : Colors.white,
                     ))
               ])),
-          Text(
-            "from \$$price",
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              color: Colors.grey,
-            ),
-          )
         ],
       ),
     );

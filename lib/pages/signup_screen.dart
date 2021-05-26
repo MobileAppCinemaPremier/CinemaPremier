@@ -12,72 +12,57 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
-
   final GlobalKey<FormState> _formKey = GlobalKey();
   TextEditingController _passwordController = new TextEditingController();
 
-  Map<String, String> _authData = {
-    'email' : '',
-    'password' : ''
-  };
+  Map<String, String> _authData = {'email': '', 'password': ''};
 
-  void _showErrorDialog(String msg)
-  {
+  void _showErrorDialog(String msg) {
     showDialog(
         context: context,
         builder: (ctx) => AlertDialog(
-          title: Text('An Error Occured'),
-          content: Text(msg),
-          actions: <Widget>[
-            FlatButton(
-              child: Text('Okay'),
-              onPressed: (){
-                Navigator.of(ctx).pop();
-              },
-            )
-          ],
-        )
-    );
+              title: Text('An Error Occured'),
+              content: Text(msg),
+              actions: <Widget>[
+                FlatButton(
+                  child: Text('Okay'),
+                  onPressed: () {
+                    Navigator.of(ctx).pop();
+                  },
+                )
+              ],
+            ));
   }
 
-  Future<void> _submit() async
-  {
-    if(!_formKey.currentState.validate())
-      {
-        return;
-      }
+  Future<void> _submit() async {
+    if (!_formKey.currentState.validate()) {
+      return;
+    }
     _formKey.currentState.save();
 
-    try{
-      await Provider.of<Authentication>(context, listen: false).signUp(
-          _authData['email'],
-          _authData['password']
-      );
+    try {
+      await Provider.of<Authentication>(context, listen: false)
+          .signUp(_authData['email'], _authData['password']);
       Navigator.of(context).pushReplacementNamed(HomePage.routeName);
-
-    } catch(error)
-    {
+    } catch (error) {
       var errorMessage = 'Authentication Failed. Please try again later.';
       _showErrorDialog(errorMessage);
     }
-
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Signup'),
-
+        backgroundColor: Colors.black,
         actions: <Widget>[
           FlatButton(
             child: Row(
-              children: <Widget>[
-                Text('Login'),
-                Icon(Icons.person)
-              ],
+              children: <Widget>[Text('Login'), Icon(Icons.person)],
             ),
             textColor: Colors.white,
-            onPressed: (){
+            onPressed: () {
               Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
             },
           )
@@ -87,13 +72,10 @@ class _SignupScreenState extends State<SignupScreen> {
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: [
-                      Colors.limeAccent,
-                      Colors.redAccent,
-                    ]
-                )
-            ),
+                gradient: LinearGradient(colors: [
+              Colors.black,
+              Colors.yellow[800],
+            ])),
           ),
           Center(
             child: Card(
@@ -113,16 +95,13 @@ class _SignupScreenState extends State<SignupScreen> {
                         TextFormField(
                           decoration: InputDecoration(labelText: 'Email'),
                           keyboardType: TextInputType.emailAddress,
-                          validator: (value)
-                          {
-                            if(value.isEmpty || !value.contains('@'))
-                            {
+                          validator: (value) {
+                            if (value.isEmpty || !value.contains('@')) {
                               return 'invalid email';
                             }
                             return null;
                           },
-                          onSaved: (value)
-                          {
+                          onSaved: (value) {
                             _authData['email'] = value;
                           },
                         ),
@@ -132,52 +111,43 @@ class _SignupScreenState extends State<SignupScreen> {
                           decoration: InputDecoration(labelText: 'Password'),
                           obscureText: true,
                           controller: _passwordController,
-                          validator: (value)
-                          {
-                            if(value.isEmpty || value.length<=5)
-                            {
+                          validator: (value) {
+                            if (value.isEmpty || value.length <= 5) {
                               return 'invalid password';
                             }
                             return null;
                           },
-                          onSaved: (value)
-                          {
+                          onSaved: (value) {
                             _authData['password'] = value;
                           },
                         ),
 
                         //Confirm Password
                         TextFormField(
-                          decoration: InputDecoration(labelText: 'Confirm Password'),
+                          decoration:
+                              InputDecoration(labelText: 'Confirm Password'),
                           obscureText: true,
-                          validator: (value)
-                          {
-                            if(value.isEmpty || value != _passwordController.text)
-                            {
+                          validator: (value) {
+                            if (value.isEmpty ||
+                                value != _passwordController.text) {
                               return 'invalid password';
                             }
                             return null;
                           },
-                          onSaved: (value)
-                          {
-
-                          },
+                          onSaved: (value) {},
                         ),
                         SizedBox(
                           height: 30,
                         ),
                         RaisedButton(
-                          child: Text(
-                              'Submit'
-                          ),
-                          onPressed: ()
-                          {
+                          child: Text('Submit'),
+                          onPressed: () {
                             _submit();
                           },
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          color: Colors.blue,
+                          color: Colors.black,
                           textColor: Colors.white,
                         )
                       ],

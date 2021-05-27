@@ -11,6 +11,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'login_screen.dart';
 
 class DetailPage extends StatelessWidget {
   final Movie movie;
@@ -307,7 +308,7 @@ class DetailPage extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
-                                      BookTicketPage(movie: movie),
+                                      LoginScreen(login: LoginScreen),
                                 ),
                               );
                             },

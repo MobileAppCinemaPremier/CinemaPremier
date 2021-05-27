@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'pages/home_page.dart';
 import 'pages/login_screen.dart';
 import 'pages/signup_screen.dart';
+import 'pages/book_page.dart';
 import 'models/authentication.dart';
 
 void main() => runApp(MyApp());
@@ -22,10 +23,11 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: Colors.blue,
         ),
-        home: LoginScreen(),
+        home: HomePage(),
         routes: {
           SignupScreen.routeName: (ctx)=> SignupScreen(),
           LoginScreen.routeName: (ctx)=> LoginScreen(),
+          BookTicketPage.routeName : (ctx) => BookTicketPage(),
           HomePage.routeName: (ctx)=> HomePage(),
         },
       ),

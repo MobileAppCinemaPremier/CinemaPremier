@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'signup_screen.dart';
-import 'home_page.dart';
+import 'book_page.dart';
 import '../models/authentication.dart';
 
 class LoginScreen extends StatefulWidget {
+  final login;
+  const LoginScreen({Key key, this.login}) : super(key: key);
   static const routeName = '/login';
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -42,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
     try {
       await Provider.of<Authentication>(context, listen: false)
           .logIn(_authData['email'], _authData['password']);
-      Navigator.of(context).pushReplacementNamed(HomePage.routeName);
+      Navigator.of(context).pushReplacementNamed(BookTicketPage.routeName);
     } catch (error) {
       var errorMessage = 'Authentication Failed. Please try again later.';
       _showErrorDialog(errorMessage);

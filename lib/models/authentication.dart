@@ -35,7 +35,7 @@ class Authentication with ChangeNotifier
 
   Future<void> logIn(String email, String password) async
   {
-    const url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[YOUR KEY]';
+    const url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBDo7w3gIP5ojtjCx3AiW6L9Pxj1h9DK04';
 
     try{
       final response = await http.post(url, body: json.encode(

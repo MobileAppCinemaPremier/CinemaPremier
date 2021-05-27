@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BookTicketPage extends StatelessWidget {
+  static const routeName = '/bookticket';
   final Movie movie;
   const BookTicketPage({Key key, this.movie}) : super(key: key);
   @override

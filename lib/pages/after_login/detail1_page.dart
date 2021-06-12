@@ -11,25 +11,24 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'login_screen.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage1 extends StatelessWidget {
   final Movie movie;
-  const DetailPage({Key key, this.movie}) : super(key: key);
+  const DetailPage1({Key key, this.movie}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => DetailBloc()..add(DetailEventStated(movie.id)),
       child: WillPopScope(
         child: Scaffold(
-          body: detailPageBody(context),
+          body: detailPageBody1(context),
         ),
         onWillPop: () async => true,
       ),
     );
   }
 
-  Widget detailPageBody(BuildContext context) {
+  Widget detailPageBody1(BuildContext context) {
     return BlocBuilder<DetailBloc, DetailState>(
       builder: (context, state) {
         if (state is DetailLoading) {
@@ -307,19 +306,20 @@ class DetailPage extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) =>
-                                      LoginScreen(login: LoginScreen),
+                                  builder: (context) => BookTicketPage(
+                                    movie: movie,
+                                  ),
                                 ),
                               );
                             },
                             child: Center(
                                 child: Container(
-                                    width: 300,
+                                    width: 180,
                                     height: 55,
                                     color: Colors.yellow[800],
                                     child: Center(
                                       child: Text(
-                                        'LOG IN TO BOOK YOUR TICKET',
+                                        'BOOK TICKET',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 15,

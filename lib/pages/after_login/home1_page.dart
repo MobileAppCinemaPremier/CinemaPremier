@@ -4,15 +4,18 @@ import 'package:cinema_premier/data/movie/bloc_eventm.dart';
 import 'package:cinema_premier/data/movie/bloc_movie.dart';
 import 'package:cinema_premier/data/movie/bloc_statem.dart';
 import 'package:cinema_premier/data/movie/movie_data.dart';
+import 'package:cinema_premier/pages/after_login/detail1_page.dart';
+import 'package:cinema_premier/pages/after_login/genre1_page.dart';
 import 'package:cinema_premier/pages/detail_page.dart';
 import 'package:cinema_premier/pages/genre_page.dart';
+import 'package:cinema_premier/pages/home_page.dart';
 import 'package:cinema_premier/pages/login_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomePage extends StatelessWidget {
-  static const routeName = '/home';
+class HomePage1 extends StatelessWidget {
+  static const routeName = '/home1';
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -40,28 +43,28 @@ class HomePage extends StatelessWidget {
             children: <Widget>[
               UserAccountsDrawerHeader(
                 accountName: Text(
-                  'Guest',
+                  'Member',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 24,
                   ),
                 ),
-                accountEmail: null,
+                accountEmail: Text('Member of Cinema Premier'),
               ),
               Divider(),
               ListTile(
                 title: Text(
-                  'Log In',
+                  'Log Out',
                   style: TextStyle(color: Colors.yellow[900]),
                 ),
                 leading: Icon(
-                  Icons.account_box,
+                  Icons.logout,
                   color: Colors.yellow[900],
                 ),
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                    MaterialPageRoute(builder: (context) => HomePage()),
                   );
                 },
               ),
@@ -132,7 +135,7 @@ class HomePage extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        DetailPage(movie: movie),
+                                        DetailPage1(movie: movie),
                                   ),
                                 );
                               },
@@ -202,7 +205,7 @@ class HomePage extends StatelessWidget {
                               SizedBox(
                                 height: 25,
                               ),
-                              CategoryWidget(),
+                              CategoryWidget1(),
                             ],
                           ),
                         )

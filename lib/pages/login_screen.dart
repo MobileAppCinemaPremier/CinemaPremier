@@ -1,3 +1,4 @@
+import 'package:cinema_premier/pages/after_login/home1_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -44,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
     try {
       await Provider.of<Authentication>(context, listen: false)
           .logIn(_authData['email'], _authData['password']);
-      Navigator.of(context).pushReplacementNamed(BookTicketPage.routeName);
+      Navigator.of(context).pushReplacementNamed(HomePage1.routeName);
     } catch (error) {
       var errorMessage = 'Authentication Failed. Please try again later.';
       _showErrorDialog(errorMessage);

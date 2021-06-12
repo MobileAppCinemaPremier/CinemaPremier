@@ -1,3 +1,4 @@
+import 'package:cinema_premier/pages/after_login/home1_page.dart';
 import 'package:cinema_premier/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,20 +16,22 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(
-            value: Authentication(),
+          value: Authentication(),
         )
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Cinema Premier',
         theme: ThemeData(
-          primaryColor: Colors.blue,
+          primaryColor: Colors.black,
         ),
         home: HomePage(),
         routes: {
-          SignupScreen.routeName: (ctx)=> SignupScreen(),
-          LoginScreen.routeName: (ctx)=> LoginScreen(),
-          BookTicketPage.routeName : (ctx) => BookTicketPage(),
-          HomePage.routeName: (ctx)=> HomePage(),
+          SignupScreen.routeName: (ctx) => SignupScreen(),
+          LoginScreen.routeName: (ctx) => LoginScreen(),
+          HomePage1.routeName: (ctx) => HomePage1(),
+          BookTicketPage.routeName: (ctx) => BookTicketPage(),
+          HomePage.routeName: (ctx) => HomePage(),
         },
       ),
     );

@@ -9,25 +9,24 @@ import 'package:cinema_premier/data/upcoming/bloc_eventu.dart';
 import 'package:cinema_premier/data/upcoming/bloc_stateu.dart';
 import 'package:cinema_premier/data/upcoming/bloc_upcoming.dart';
 import 'package:cinema_premier/data/upcoming/upcoming_data.dart';
+import 'package:cinema_premier/pages/after_login/detail1_page.dart';
 import 'package:cinema_premier/pages/detail_page.dart';
 import 'package:cinema_premier/pages/udetail_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CategoryWidget extends StatefulWidget {
+class CategoryWidget1 extends StatefulWidget {
   final int selectGenre;
-  const CategoryWidget({Key key, this.selectGenre = 4}) : super(key: key);
+  const CategoryWidget1({Key key, this.selectGenre = 4}) : super(key: key);
   @override
-  CategoryWidgetState createState() => CategoryWidgetState();
+  CategoryWidgetState1 createState() => CategoryWidgetState1();
 }
 
-class CategoryWidgetState extends State<CategoryWidget> {
-  int selectGenre;
+class CategoryWidgetState1 extends State<CategoryWidget1> {
   @override
   void initState() {
     super.initState();
-    selectGenre = widget.selectGenre;
   }
 
   @override
@@ -41,11 +40,11 @@ class CategoryWidgetState extends State<CategoryWidget> {
           create: (_) => UpcomingBloc()..add(UpcomingEventStart(0, '')),
         ),
       ],
-      child: genrePage(context),
+      child: genrePage1(context),
     );
   }
 
-  Widget genrePage(BuildContext context) {
+  Widget genrePage1(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -98,7 +97,7 @@ class CategoryWidgetState extends State<CategoryWidget> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => DetailPage(movie: movie),
+                                builder: (context) => DetailPage1(movie: movie),
                               ),
                             );
                           },

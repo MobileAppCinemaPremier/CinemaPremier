@@ -299,6 +299,21 @@ class UpcomingDetailPage extends StatelessWidget {
                               },
                             ),
                           ),
+                          Center(
+                              child: Container(
+                                  width: 150,
+                                  height: 55,
+                                  color: Colors.yellow[800],
+                                  child: Center(
+                                    child: Text(
+                                      'UNAVAILABLE',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ))),
                         ],
                       ),
                     ),

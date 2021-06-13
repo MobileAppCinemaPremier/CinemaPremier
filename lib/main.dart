@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Cinema Premier',
         theme: ThemeData(
+          fontFamily: 'Confortaa',
           primaryColor: Colors.black,
         ),
         home: HomePage(),

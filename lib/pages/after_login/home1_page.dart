@@ -99,6 +99,17 @@ class HomePage1 extends StatelessWidget {
                           ],
                         )),
               ),
+              ListTile(
+                title: Text(
+                  'Contact Us : +62-812-116-0364',
+                  style: TextStyle(color: Colors.yellow[900]),
+                ),
+                leading: Icon(
+                  Icons.phone,
+                  color: Colors.yellow[900],
+                ),
+                onTap: () {},
+              ),
             ],
           ),
         ),

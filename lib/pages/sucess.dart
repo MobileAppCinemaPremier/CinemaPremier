@@ -51,7 +51,7 @@ class SuccessScreen extends StatelessWidget {
                 'Your Payment Was Done Successfully',
                 style: TextStyle(
                     color: Colors.black54,
-                    fontSize: 20,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold),
               ),
               SizedBox(
@@ -80,7 +80,7 @@ class SuccessScreen extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                          fontSize: 18,
                         ),
                       ),
                     ),

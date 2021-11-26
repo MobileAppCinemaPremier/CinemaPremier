@@ -5,8 +5,8 @@
 
 
 # Developer : 
-Nicholas Hadi 535190048,
-Andreas Lie 535190020
+- Nicholas Hadi 535190048
+- Andreas Lie 535190020
 
 API Reference : https://www.themoviedb.org/
 
